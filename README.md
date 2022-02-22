@@ -17,3 +17,7 @@ source venv/Scripts/activate
 ```bash
 pip install -r requirements.txt
 ```
+4. Once you have finished working within the virtual environment, you can deactivate it.
+```bash
+deactivate
+```
