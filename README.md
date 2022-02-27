@@ -21,3 +21,16 @@ pip install -r requirements.txt
 ```bash
 deactivate
 ```
+5. Download the necessary selenium webdrivers (make sure you also have "chrome", "firefox", "ie", "edge" and "opera" browsers downloaded on your machine).
+```bash
+python drivers/driver_downloader.py
+```
+6. Create a ```configurations.ini``` and copy the following configurations (of course replace the place holder ```your_path``` with your actual paths to the drivers):
+```python
+[DRIVER_PATHS]
+EDGE_EXE_PATH=your_path\\.wdm\\drivers\\edgedriver\\win64\\98.0.1108.62\\msedgedriver.exe
+OPERA_EXE_PATH=your_path\\.wdm\\drivers\\operadriver\\win64\\v.98.0.4758.82\\operadriver_win64\\operadriver.exe
+CHROME_EXE_PATH=your_path\\.wdm\\drivers\\chromedriver\\win32\\98.0.4758.102\\chromedriver.exe
+FIREFOX_EXE_PATH=your_path\\.wdm\\drivers\\geckodriver\\win64\\v0.30.0\\geckodriver.exe
+IE_EXE_PATH=your_path\\.wdm\\drivers\\IEDriverServer\\win64\\4.0.0\\IEDriverServer.exe
+```
