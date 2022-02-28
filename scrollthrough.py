@@ -5,19 +5,37 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+import argparse
+
+parser = argparse.ArgumentParser(description='Power usage test tool.')
+
+parser.add_argument('--p', '-page', type=str, help='the webpage to open and scrollthrough',
+                    default='')
+parser.add_argument('--s', '-seconds', type=int, help='total duration',
+                    default=5)
+
+args = vars(parser.parse_args())
+
+# parsing the page to load
+page = args.get('p')
+print(page)
+if(page == "") :
+  print("cannot load empty page!")
+  exit()
 
 def current_time():
     return round(time.time())
 
+# total execution time in seconds
+totalTime = args.get('s')
+
 # higher values mean faster scrolling
 scrollspeed = 5;
-# total execution time in seconds
-totalTime = 30
+
 # recording the starttime of the program
 starttime = current_time()
 
-# the page to load
-page = "https://en.wikipedia.org/wiki/World_energy_supply_and_consumption"
+
 
 # Installing the chrome driver.
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
