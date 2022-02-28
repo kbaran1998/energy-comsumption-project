@@ -7,6 +7,14 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import argparse
 
+# gets the current time in seconds.
+def current_time():
+    return round(time.time())
+
+# recording the starttime of the program
+starttime = current_time()
+
+# setting up the parser
 parser = argparse.ArgumentParser(description='Power usage test tool.')
 
 parser.add_argument('--p', '-page', type=str, help='the webpage to open and scrollthrough',
@@ -20,22 +28,14 @@ args = vars(parser.parse_args())
 page = args.get('p')
 print(page)
 if(page == "") :
-  print("cannot load empty page!")
+  print("ERROR: cannot load empty page!")
   exit()
-
-def current_time():
-    return round(time.time())
 
 # total execution time in seconds
 totalTime = args.get('s')
 
 # higher values mean faster scrolling
-scrollspeed = 5;
-
-# recording the starttime of the program
-starttime = current_time()
-
-
+scrollspeed = 5
 
 # Installing the chrome driver.
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -52,8 +52,9 @@ for j in range(1, total_height, scrollspeed):
   driver.execute_script("window.scrollTo(0, {});".format(j))
 
 # wait until the total time is up.
-time.sleep(totalTime-(current_time() - starttime))
-
+SLEEPTIME = totalTime - (current_time() - starttime)
+if(SLEEPTIME > 0):
+  time.sleep(SLEEPTIME)
 driver.quit()
 
 

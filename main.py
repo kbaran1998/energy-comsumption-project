@@ -11,6 +11,7 @@ py main.py --f PWR --s 10 --cmd 'https://www.google.com/' - measures power usage
 """
 import os
 import argparse
+import time
 
 DEFAULT_POWERLOG = 'C:\\Program Files\\Intel\\Power Gadget 3.6'
 parser = argparse.ArgumentParser(description='Power usage test tool.')
@@ -35,14 +36,16 @@ duration_str = f"-duration {args.get('s')}" if args.get("s") is not None else ""
 runtime_str = f"--s {args.get('s')}" if args.get("s") is not None else ""
 command_str = f"--p {args.get('cmd')}" if args.get("cmd") is not None else ""
 
-print(f"RUN PowerLog3.0 {times_to_run} times...\n")
+print(f"DEBUG: RUN PowerLog3.0 {times_to_run} times...\n")
 
 ZFILL_NUM = len(str(times_to_run))
 
 for i in range(times_to_run):
-    SAVEFILE = os.path.join('\out', args.get("f")+"_"+ str(i+1).zfill(ZFILL_NUM)+".csv")
-    cmd = f'"{args.get("p")}\\PowerLog3.0.exe" {duration_str} -file {SAVEFILE} {"py scrollthrough.py " + command_str + " " + runtime_str}'
-    print("Running:", cmd, "\n")
+    SAVEFILE = os.path.join('out', args.get("f")+"_"+ str(i+1) +".csv")
+    print("DEBUG: " + SAVEFILE)
+    cmd = f'"{args.get("p")}\\PowerLog3.0.exe" {duration_str} -file {SAVEFILE} {"-cmd py scrollthrough.py " + command_str + " " + runtime_str}'
+    print("DEBUG: Running:", cmd, "\n")
 
     os.system(cmd)
-    print("DONE\n")
+    # wait one minute between page executions for system to cooldown.
+    time.sleep(60)
