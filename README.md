@@ -9,10 +9,20 @@ python3 -m pip --version
 python3 -m pip install --user virtualenv
 ```
 2. Create and activate virtual environment (preferably in Git Bash).
+
 ```bash
 python3 -m venv venv
 source venv/Scripts/activate
 ```
+
+OR
+
+```bash
+python3 -m venv venv
+.\venv\Scripts\activate
+```
+
+
 3. Install all packages in ```requirements.txt``` with pip. If you need to use a python package, put it there.
 ```bash
 pip install -r requirements.txt
