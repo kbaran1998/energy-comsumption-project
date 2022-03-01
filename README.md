@@ -17,7 +17,24 @@ source venv/Scripts/activate
 ```bash
 pip install -r requirements.txt
 ```
-4. Once you have finished working within the virtual environment, you can deactivate it.
+4. Download the necessary selenium webdrivers (make sure you also have "chrome", "firefox", "ie", "edge" and "opera" browsers downloaded on your machine).
+```bash
+python drivers/driver_downloader.py
+```
+5. Create a ```configurations.ini``` and copy the following configurations (of course replace the place holder ```__your_path__``` with your actual paths to the downloaded drivers):
+```python
+[DRIVER_PATHS]
+EDGE_EXE_PATH=__your_path__\\.wdm\\drivers\\edgedriver\\win64\\98.0.1108.62\\msedgedriver.exe
+OPERA_EXE_PATH=__your_path__\\.wdm\\drivers\\operadriver\\win64\\v.98.0.4758.82\\operadriver_win64\\operadriver.exe
+CHROME_EXE_PATH=__your_path__\\.wdm\\drivers\\chromedriver\\win32\\98.0.4758.102\\chromedriver.exe
+FIREFOX_EXE_PATH=__your_path__\\.wdm\\drivers\\geckodriver\\win64\\v0.30.0\\geckodriver.exe
+IE_EXE_PATH=__your_path__\\.wdm\\drivers\\IEDriverServer\\win64\\4.0.0\\IEDriverServer.exe
+```
+6. To run the experiments run scripts:
+```bash
+python experiment_run.py
+```
+7. Once you have finished working within the virtual environment, you can deactivate it.
 ```bash
 deactivate
 ```

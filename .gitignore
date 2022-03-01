@@ -128,6 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Project
+# Custom Project folders
 .out
 out/
+.vscode/
+*.ini
