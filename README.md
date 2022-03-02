@@ -2,7 +2,7 @@
 
 
 ## Set up on your machine
-1. Make sure you have python and pip installed.
+1. Make sure you have python and pip installed (and download [Power Gadget 3.6](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html)).
 ```bash
 python3 -m pip install --user --upgrade pip
 python3 -m pip --version
