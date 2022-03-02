@@ -45,7 +45,7 @@ IE_EXE_PATH=__your_path__\\.wdm\\drivers\\IEDriverServer\\win64\\4.0.0\\IEDriver
 python experiment_run.py
 ```
 
-6. To get parsed csv files within new generated directory ```out``` run:
+6. To get parsed csv files within new generated directory ```out``` and get results for each framework and website run:
 ```bash
 python parsers/parse.py
 ```

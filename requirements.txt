@@ -9,3 +9,4 @@ WMI==1.5.1
 selenium
 webdriver_manager
 pylint
+tabulate
