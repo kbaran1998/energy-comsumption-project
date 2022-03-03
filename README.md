@@ -1,5 +1,6 @@
 # energy-comsumption-project
 
+Energy consumption project for Frontend JavaScript frameworks (React, Vue, Angular, Svelte).
 
 ## Set up on your machine
 1. Make sure you have python and pip installed (and download [Power Gadget 3.6](https://www.intel.com/content/www/us/en/developer/articles/tool/power-gadget.html)).
